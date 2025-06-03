@@ -1,0 +1,90 @@
+body{
+    background-image: black;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: Verdana;
+    overflow-x: hidden;
+    text-align: center;
+    color: black;
+    font-size: 2vh;
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    display: contents;
+    color: black;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+p{
+    padding: 0;
+    margin: 0;
+}
+
+/* MAIN TAB */
+
+main{
+    margin: 0 auto;
+    width: 80%;
+}
+
+main, .movie-page .moviesgrid .movie-preview{
+    border: 1px solid black;
+}
+
+.moviesgrid{
+    width: 200%;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
+    margin: auto auto;
+}
+
+.movie-preview{
+    margin: 5% 1%;
+}
+
+.movie-image{
+    margin: 5% auto;
+    border-radius: 10%;
+    background: purple;
+    width: 85%;
+    height: 35vh;
+}
+
+.critic-score, .fan-score{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin: 2% auto;
+    gap: 5%;
+}
+
+.scores{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    text-align: center;
+    margin: 5% auto;
+    font-size: 1.5vw;
+}
+
+.score-icon{
+    margin-left: auto;
+    width: 2vw;
+    height: 2vw;
+    border-radius: 50%;
+    background: red;
+}
+
+.movie-preview:hover .scores{
+    color: blue;
+}
+
+.movie-preview:hover .movie-image{
+    filter: brightness(65%);
+}
+
+
+/* ANIMATIONS */
