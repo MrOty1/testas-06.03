@@ -1,5 +1,9 @@
+:root{
+    --background-color: rgb(255, 255, 255);
+}
+
 body{
-    background-image: black;
+    background: var(--background-color);
     background-size: cover;
     background-attachment: fixed;
     font-family: Verdana;
@@ -25,21 +29,108 @@ p{
     margin: 0;
 }
 
+header{
+    position: fixed;
+    background: var(--background-color);
+    top: 0;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    width: 100%;
+    z-index: 3;
+    border-bottom: 1vh solid black;
+}
+
+footer{
+    position: fixed;
+    background: var(--background-color);
+    bottom: 0;
+    width: 100%;
+    z-index: 3;
+    border-top: 1vh solid black;
+}
+
+header a:hover{
+    color: blue;
+}
+
+.logo:hover{
+    cursor: pointer;
+}
+
 /* MAIN TAB */
+
+.border div{
+    z-index: 1;
+    position: absolute;
+    width: 10%;
+    height: 100%;
+}
+
+.border div:nth-child(1){
+    background: var(--background-color);
+    left: 0%;
+}
+
+.border div:nth-child(2){
+    background: var(--background-color);
+    right: 0%;
+}
+
+.border-buttons div{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border-radius: 25%;
+    z-index: 2;
+    position: absolute;
+    width: 5vw;
+    height: 5vw;
+    top: 35%;
+}
+
+.leftbutton{
+    background: url(images/arrow.png);
+    background-color: rgba(0, 0, 0, 0.5);
+    rotate: 270deg;
+    left: 3%;
+}
+
+.rightbutton{
+    background: url(images/arrow.png);
+    background-color: rgba(0, 0, 0, 0.5);
+    rotate: 90deg;
+    right: 3%;
+}
+
+.leftbutton:hover, .rightbutton:hover{
+    cursor: pointer;
+    background-color: rgb(150, 150, 150)
+}
+
+.rightbutton{
+    background: url(images/arrow.png);
+    background-color: rgb(100, 100, 100);
+    rotate: 90deg;
+    right: 3%;
+}
 
 main{
     margin: 0 auto;
     width: 80%;
 }
 
-main, .movie-page .moviesgrid .movie-preview{
-    border: 1px solid black;
+.moviesgrid{
+    width: 400%;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
+    transition: margin-left 0.5s ease;
 }
 
-.moviesgrid{
-    width: 200%;
+.allmoviesgrid{
+    width: 80%;
     display: grid;
-    grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
+    grid-template-columns: auto auto auto auto auto;
+    grid-template-rows: auto auto auto auto;
     margin: auto auto;
 }
 
@@ -47,38 +138,52 @@ main, .movie-page .moviesgrid .movie-preview{
     margin: 5% 1%;
 }
 
-.movie-image{
-    margin: 5% auto;
-    border-radius: 10%;
-    background: purple;
-    width: 85%;
-    height: 35vh;
+.movies-page{
+    margin: 10% auto;
 }
 
-.critic-score, .fan-score{
-    display: grid;
-    grid-template-columns: 50% 50%;
-    margin: 2% auto;
-    gap: 5%;
+.glowing{
+    animation: glow 1s ease infinite;
+}
+
+.movie-image{
+    margin: 1% auto;
+    border-radius: 10%;
+    background: rgba(calc(var(--order) * 12.75), 0, 0, 100%);
+    width: 100%;
+    height: 40vh;
+}
+
+.movie-preview div{
+    display: flex;
+    justify-content: center;
 }
 
 .scores{
     display: grid;
     grid-template-columns: 50% 50%;
     text-align: center;
-    margin: 5% auto;
+    margin: 2% auto;
     font-size: 1.5vw;
+    gap: 5%;
 }
 
 .score-icon{
-    margin-left: auto;
+    margin: auto auto;
     width: 2vw;
     height: 2vw;
     border-radius: 50%;
+}
+
+.critic-score{
     background: red;
 }
 
-.movie-preview:hover .scores{
+.fan-score{
+    background: green;
+}
+
+.movie-preview:hover{
     color: blue;
 }
 
@@ -88,3 +193,12 @@ main, .movie-page .moviesgrid .movie-preview{
 
 
 /* ANIMATIONS */
+
+@keyframes glow{
+    0%{}
+    50%{
+        text-shadow: 0 0 15px gold;
+        color: gold;
+    }
+    100%{}
+}
