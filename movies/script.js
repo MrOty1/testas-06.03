@@ -1,9 +1,6 @@
-//Padaryti movie review site, (PANAŠUS Į IMDB, ROTTENTOMATOES), REIKIA APIE 100 Filmų
-
-let secretWord = [];
-let count = 0;
 let pagelist = 0;
 let currentValue = 0;
+let currentPage = window.location.pathname.split('/').pop().split('.').shift();
 let movieReviews = [
     {
         name: ["Five Nights at Freddy's"],
@@ -232,22 +229,20 @@ let movieReviews = [
     }
 ];
 
-const moviesText = document.querySelector('.listofmoviestext');
 const supportText = document.querySelector('.support-text');
 const watchText = document.querySelector('.watchrightnow');
-const logoText = document.querySelector('.logo');
+
+const movieTitle = document.querySelector('.movieTitle')
+const movieTitleTop = document.querySelector('.movieTitleTop')
+const moviePoster = document.querySelector('.moviePoster')
+const criticComment = document.querySelector('.criticScoreComment')
+const fanComment = document.querySelector('.fanScoreComment')
 
 const leftButton = document.querySelector('.leftbutton');
 const rightButton = document.querySelector('.rightbutton');
 const movielist = document.querySelector('.movies-page');
 
-const secretThing = document.querySelector('.secret');
-const secretText = document.querySelector('.secret-text');
-const secretSFX = document.querySelector('.secretAudio')
-const secretSFXVoice = document.querySelector('.secretAudioVoice')
-
 const movieCompactList = document.querySelector('.moviesgrid');
-const allmovielist = document.querySelector('.allmoviesgrid');
 
 // GRID CODE
 
@@ -265,7 +260,7 @@ const addMovieList = (target, movieRatings) => {
         let fanScoreFinal = Math.round((fanScore / movieRatings[e].fanReviews.length) * 10) + "%";
         let movieName = movieRatings[e].name
         target.innerHTML += `
-            <a class="movie-select" href="movies/${e + 1}.html">
+            <a class="movie-select" href="${e + 1}.html">
                 <div class="movie-preview">
                     <div class="movie-image" style="--order: ${e + 1}"></div>
                         <p class="movie-name">${movieName}</p>
@@ -284,8 +279,38 @@ const addMovieList = (target, movieRatings) => {
     }
 }
 
+const detectMovie = (title, titleTop, poster, criticCMT, fanCMT, pageNumber, movieRatings) => {
+    let criticScore = 0;
+    let fanScore = 0;
+    for(let i = 0; i < movieRatings[pageNumber - 1].criticReviews.length; i++){
+        criticScore += movieRatings[pageNumber - 1].criticReviews[i].score
+    }
+    for(let i = 0; i < movieRatings[pageNumber - 1].fanReviews.length; i++){
+        fanScore += movieRatings[pageNumber - 1].fanReviews[i].score
+    }
+    let criticScoreFinal = Math.round((criticScore / movieRatings[pageNumber - 1].criticReviews.length) * 10) + "%";
+    let fanScoreFinal = Math.round((fanScore / movieRatings[pageNumber - 1].fanReviews.length) * 10) + "%";
+    let criticReview = "";
+    let fanReview = "";
+    criticCMT.innerHTML += `<h2>(${criticScoreFinal}) Critic Reviews:</h2>`;
+    for(let i = 0; i < movieRatings[pageNumber - 1].criticReviews.length; i++){
+        criticReview = movieRatings[pageNumber - 1].criticReviews[i].text
+        criticCMT.innerHTML += `
+        <p>${movieRatings[pageNumber - 1].criticReviews[i].score} / 10<br>${criticReview}</p>`;
+    }
+    fanCMT.innerHTML += `<h2>(${fanScoreFinal}) Fan Reviews:</h2>`;
+    for(let i = 0; i < movieRatings[pageNumber - 1].fanReviews.length; i++){
+        fanReview = movieRatings[pageNumber - 1].fanReviews[i].text
+        fanCMT.innerHTML += `
+        <p>${movieRatings[pageNumber - 1].fanReviews[i].score} / 10<br>${fanReview}</p>`;
+    }
+    title.innerHTML += `${movieRatings[pageNumber - 1].name}`;
+    titleTop.innerHTML += `${movieRatings[pageNumber - 1].name}`;
+    poster.classList.add(`movie-image-${pageNumber}`);
+}
+
 addMovieList(movieCompactList, movieReviews);
-addMovieList(allmovielist, movieReviews);
+detectMovie(movieTitle, movieTitleTop, moviePoster, criticComment, fanComment, currentPage, movieReviews);
 
 
 const changePage = (target) => {
@@ -321,79 +346,13 @@ const moveToGlowText = (target, glowingClass, time) =>{
     }, time);
 }
 
-const logoTextFunc = (target, glowingClass, array) =>{
-    glowingClass.classList.add('glowing');
-    for(let i = 0; i < array.length; i++){
-        setTimeout(() => {
-            target.textContent = `${array[i]}`;
-            console.log(array[i]);
-        }, i * 1000); 
-    };
-    setTimeout(() => {
-        glowingClass.classList.remove('glowing');
-        target.textContent = `IRM`;
-    }, array.length * 1000); 
-}
-
-const generateRandomCode = (array) => {
-    let random = Math.floor(Math.random() * 10) + 1
-    if(random => 10){random--}
-    for(let i = 0; i <= random; i++){
-        let randomTwo = Math.floor(Math.random() * 10) + 1
-        if(randomTwo => 10){randomTwo--}
-        array.push(randomTwo)
-    }
-    console.log(secretWord)
-}
-
-const SFXSelect = (min, max, target) => {
-    let random = Math.floor(Math.random() * (max - min) ) + min;
-    target.innerHTML = `
-        <source src="audio/Bierce_Secret_0${random}.ogg" type="audio/ogg">
-    `;
-}
-
-const secretFunc = (word, secret, event, text, sound, soundVoice, time) => {
-    if(event.key == word[count] && count == word.length - 1){
-        SFXSelect(1, 4, secretSFXVoice);
-        text.classList.add('glowing');
-        secret.classList.add('secret-unlock');
-        soundVoice.load();
-        soundVoice.play();
-        sound.play();
-        setTimeout(() => {
-            secret.classList.remove('secret-unlock');
-            text.classList.remove('glowing');
-        }, time);
-        count = 0
-    }else if(event.key == word[count] && count <= word.length - 1){
-        SFXSelect(1, 4, secretSFXVoice);
-        count++
-    }else if(event.key !== word[count]){
-        count = 0
-        console.log("You failed the secret!")
-    }
-}
-
 // EVENT LISTENERS TO CLICKING
 
 // NAVBAR BUTTONS
 
-generateRandomCode(secretWord);
-
-document.querySelector('.logo').addEventListener('click', function (e) {
-    e.preventDefault()
-    logoTextFunc(logoText, logoText, secretWord, 1000);
-});
-
 document.querySelector('.watchrightnowtext').addEventListener('click', function (e) {
     e.preventDefault()
     moveToGlowText(watchText, watchText, 3000);
-});
-
-document.querySelector('.listofmovies').addEventListener('click', function (e) {
-    e.preventDefault()
-    moveToGlowText(moviesText, moviesText, 3000);
 });
 
 document.querySelector('.supportbutton').addEventListener('click', function (e) {
@@ -409,9 +368,4 @@ document.querySelector('.leftbutton').addEventListener('click', function () {
 
 document.querySelector('.rightbutton').addEventListener('click', function () {
     rightButtonfunc();
-});
-
-document.addEventListener('keydown', (buttonPress) => {
-    console.log(`Key "${buttonPress.key}" pressed with code "${buttonPress.code}".`);
-    secretFunc(secretWord, secretThing, buttonPress, secretText, secretSFX, secretSFXVoice,  6000)
 });

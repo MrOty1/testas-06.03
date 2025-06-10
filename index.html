@@ -14,22 +14,28 @@
         <a href=""><h3 class="listofmovies">List of all Movies</h3></a>
         <a href=""><h3 class="supportbutton">Support</h3></a>
     </header>
-    <div class="border">
-        <div></div>
-        <div></div>
+    <audio class="secretAudio"><source src="audio/foundSFX.mp3" type="audio/mpeg"></audio>
+    <audio class="secretAudioVoice"></audio>
+    <div class="secret">
+        <p class="secret-text">YOU FOUND A SECRET</p>
+        <!-- <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=mapAdY5YhZZpaMWY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
+        <div class="blackscreen"></div>
     </div>
     <main>
         <div class="border-buttons">
-                    <div class="leftbutton"></div>
-                    <div class="rightbutton"></div>
-                </div>
+            <div class="leftbutton"></div>
+            <div class="rightbutton"></div>
+        </div>
         <div class="movies-page">
             <h1 class="watchrightnow">Watch right now!</h1>
-            <div class="moviesgrid"></div>
+            <div class="innerbox">
+                <div class="moviesgrid"></div>
+            </div>
         </div>
         <div class="movies-page">
             <h1 class="listofmoviestext">List of all movies</h1>
             <div class="allmoviesgrid"></div>
+        </div>
     </main>
     <footer class="support-text">
         <p>Oskaras Venzlauskas GJS23</p>
