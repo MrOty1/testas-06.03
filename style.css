@@ -167,28 +167,63 @@ a:nth-child(16) .movie-image{
 }
 
 a:nth-child(17) .movie-image{
-    background: url(images/movies/poster.png);
+    background: url(https://m.media-amazon.com/images/M/MV5BYTYxMjI2YzUtODQ5Mi00M2JmLTlmNzItOTlkM2MyM2ExM2RlXkEyXkFqcGc@._V1_.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 a:nth-child(18) .movie-image{
-    background: url(images/movies/poster2.png);
+    background: url(https://m.media-amazon.com/images/M/MV5BYWUzNzZkNzUtNDdiYy00Nzk5LTgxMmItNTk0MjRjNjdjNDA0XkEyXkFqcGc@._V1_.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 a:nth-child(19) .movie-image{
-    background: url(images/movies/poster3.png);
+    background: url(https://m.media-amazon.com/images/M/MV5BYTczZmZlZmEtODU4ZS00YzgzLThiMDUtMGE0ZmJhYzdhZGY5XkEyXkFqcGc@._V1_.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 a:nth-child(20) .movie-image{
+    background: url(https://m.media-amazon.com/images/M/MV5BM2IwMDM3ZmQtNjQ3NS00OTFiLWI5YzEtYWE3YjI5NTk3YzkwXkEyXkFqcGc@._V1_.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+a:nth-child(21) .movie-image{
+    background: url(images/movies/poster.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+a:nth-child(22) .movie-image{
+    background: url(images/movies/poster2.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+a:nth-child(23) .movie-image{
+    background: url(images/movies/poster3.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+a:nth-child(24) .movie-image{
     background: url(images/movies/poster4.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+a:nth-child(25) .movie-image{
+    background: url(images/movies/poster5.png);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -209,12 +244,6 @@ a:nth-child(20) .movie-image{
 .movieTitle{
     font-weight: 800;
     padding-top: 5%;
-}
-
-.movieSection .moviePoster{
-    margin-left: 30%;
-    width: 30vw;
-    height: 90vh;
 }
 
 .movie-name{
@@ -336,6 +365,13 @@ a .movie-image{
     gap: 5%;
 }
 
+img{
+    margin-top: 3%;
+    max-width: 25vw;
+    width: 25vw;
+    height: auto;
+}
+
 .movieContext .movieInfo .scores{
     border-top: 0.5rem solid white;
 }
@@ -386,6 +422,23 @@ a .movie-image{
     opacity: 0%;
 }
 
+.secretsite .secret{
+    background: black;
+    margin-top: 0vh;
+}
+
+.secretAnim{
+    animation: secretSite 16s;
+}
+
+.secretsite{
+    background: black;
+}
+
+.secretsite a:hover{
+    color: cyan;
+}
+
 .secret iframe{
     width: 50%;
     height: 45%;
@@ -405,6 +458,18 @@ a .movie-image{
 }
 
 /* ANIMATIONS */
+
+@keyframes secretSite{
+    0%{
+        opacity: 0%;
+    }
+    90%{
+        opacity: 0%;
+    }
+    100%{
+        opacity: 100%;
+    }
+}
 
 @keyframes secret{
     0%{
