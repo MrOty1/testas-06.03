@@ -1,3 +1,7 @@
+.moviePoster{
+    background: black;
+}
+
 .movie-image-1{
     background: url(https://m.media-amazon.com/images/M/MV5BNzFkMDE2ZmEtOWMwNy00MWM2LThlNjMtZWQzNWY5MTJjZjcxXkEyXkFqcGc@._V1_.jpg);
     background-size: contain;

@@ -54,114 +54,6 @@ header a:hover{
 
 /* MAIN TAB */
 
-.movieSection{
-    width: 100%;
-    display: grid;
-    grid-template-columns: 50% 50%;
-    padding: 4vw 0;
-}
-
-.movieSection p{
-    text-align: left;
-    margin: 5% 5%;
-}
-
-.movieTitle{
-    font-weight: 800;
-    padding-top: 5%;
-}
-
-.movieSection .moviePoster{
-    margin-left: 30%;
-    width: 30vw;
-    height: 90vh;
-}
-
-.movie-name{
-    height: 12%;
-}
-
-.innerbox{
-    margin: 0 auto;
-    overflow-x: hidden;
-    width: 85%;
-}
-
-.border-buttons div{
-    background-color: rgb(20, 20, 20);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    border-radius: 25%;
-    z-index: 2;
-    position: absolute;
-    width: 5vw;
-    height: 5vw;
-    margin-top: 45vh;
-}
-
-.leftbutton{
-    background: url(images/arrow.png);
-    rotate: 270deg;
-    left: 3%;
-}
-
-.rightbutton{
-    background: url(images/arrow.png);
-    rotate: 90deg;
-    right: 3%;
-}
-
-.leftbutton:hover, .rightbutton:hover{
-    cursor: pointer;
-    background-color: rgb(50, 50, 50)
-}
-
-main{
-    background: var(--background-color);
-}
-
-.moviesgrid{
-    overflow: hidden;
-    width: 400%;
-    display: grid;
-    grid-template-columns: repeat(20, 5%);
-    transition: margin-left 0.5s ease;
-}
-
-.allmoviesgrid{
-    display: grid;
-    grid-template-columns: repeat(5, 20%);
-    grid-template-rows: repeat(4, 25%);
-}
-
-.moviesgrid p, .allmoviesgrid p{
-    margin: auto auto;
-}
-
-.movie-text{
-    display: grid;
-    grid-template-rows: 50% 50%;
-}
-
-.movie-preview{
-    margin: 0% 5%;
-    margin-bottom: 5em;
-    text-size-adjust: auto;
-}
-
-.moviesgrid .movie-preview{
-    margin-bottom: 7vh;
-}
-
-.movies-page{
-    padding: 5% 1%;
-}
-
-.glowing{
-    animation: glow 1s ease infinite;
-}
-
 a:nth-child(1) .movie-image{
     background: url(https://m.media-amazon.com/images/M/MV5BNzFkMDE2ZmEtOWMwNy00MWM2LThlNjMtZWQzNWY5MTJjZjcxXkEyXkFqcGc@._V1_.jpg);
     background-position: center;
@@ -302,10 +194,127 @@ a:nth-child(20) .movie-image{
     background-repeat: no-repeat;
 }
 
+.movieSection{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    padding: 4vw 0;
+}
+
+.movieSection p{
+    text-align: left;
+    margin: 5% 5%;
+}
+
+.movieTitle{
+    font-weight: 800;
+    padding-top: 5%;
+}
+
+.movieSection .moviePoster{
+    margin-left: 30%;
+    width: 30vw;
+    height: 90vh;
+}
+
+.movie-name{
+    height: 12%;
+}
+
+.innerbox{
+    margin: 0 auto;
+    overflow-x: hidden;
+    width: 85%;
+}
+
+.border-buttons div{
+    background-color: rgb(20, 20, 20);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border-radius: 25%;
+    z-index: 2;
+    position: absolute;
+    width: 5vw;
+    height: 5vw;
+    margin-top: 45vh;
+}
+
+.leftbutton{
+    background: url(images/arrow.png);
+    rotate: 270deg;
+    left: 3%;
+}
+
+.rightbutton{
+    background: url(images/arrow.png);
+    rotate: 90deg;
+    right: 3%;
+}
+
+.leftbutton:hover, .rightbutton:hover{
+    cursor: pointer;
+    background-color: rgb(50, 50, 50)
+}
+
+main{
+    background: var(--background-color);
+}
+
+.moviesgrid{
+    width: 400%;
+    display: grid;
+    grid-template-columns: repeat(calc(var(--div-count)), 5%);
+    transition: margin-left 0.5s ease;
+}
+
+.allmoviesgrid{
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
+}
+
+.moviesgrid p, .allmoviesgrid p{
+    display: contents;
+}
+
+.movie-text{
+    display: grid;
+    grid-template-rows: 50% 50%;
+}
+
+.movie-preview{
+    border-radius: 10%;
+    margin: 0% 5%;
+    margin-bottom: 5em;
+    text-size-adjust: auto;
+}
+
+.moviesgrid .movie-preview{
+    margin-bottom: 7vh;
+}
+
+.movies-page{
+    padding: 5% 1%;
+}
+
+.glowing{
+    animation: glow 1s ease infinite;
+}
+
+.user-score{
+    animation: userscore 1s infinite;
+}
+
+a .movie-image{
+    animation: border 1s infinite;
+    background: black;
+}
+
 .movie-image{
     background-position: center center;
     margin: 1% auto;
-    border-radius: 10%;
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
     filter: brightness(70%);
     width: 100%;
     height: 55vh;
@@ -327,6 +336,10 @@ a:nth-child(20) .movie-image{
     gap: 5%;
 }
 
+.movieContext .movieInfo .scores{
+    border-top: 0.5rem solid white;
+}
+
 .criticScoreComment h2{
     color: red;
 }
@@ -337,8 +350,8 @@ a:nth-child(20) .movie-image{
 
 .score-icon{
     margin: auto auto;
-    width: 2vw;
-    height: 2vw;
+    width: 2rem;
+    height: 2rem;
     border-radius: 50%;
 }
 
@@ -382,6 +395,11 @@ a:nth-child(20) .movie-image{
     margin: 1% 1%;
 }
 
+.secret img{
+    width: 25vh;
+    height: 25vh;
+}
+
 .secret-unlock{
     animation: secret 6s ease-in-out infinite;
 }
@@ -412,6 +430,27 @@ a:nth-child(20) .movie-image{
         color: gold;
     }
     100%{}
+}
+
+@keyframes userscore{
+    0%{}
+    50%{
+        text-shadow: 0 0 15px gold;
+        color: rgb(255, 255, 0);
+    }
+    100%{}
+}
+
+@keyframes border{
+    0%{
+        border-bottom: 0.5rem solid rgb(255, 255, 255);
+    }
+    50%{
+        border-bottom: 0.5rem solid     rgb(190, 190, 190);
+    }
+    100%{
+        border-bottom: 0.5rem solid rgb(255, 255, 255);
+    }
 }
 
 @media screen and (max-width: 1450px) {
