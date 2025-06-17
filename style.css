@@ -246,10 +246,6 @@ a:nth-child(25) .movie-image{
     padding-top: 5%;
 }
 
-.movie-name{
-    height: 12%;
-}
-
 .innerbox{
     margin: 0 auto;
     overflow-x: hidden;
@@ -267,6 +263,11 @@ a:nth-child(25) .movie-image{
     width: 5vw;
     height: 5vw;
     margin-top: 45vh;
+    transition: transform 0.25s;
+}
+
+.border-buttons div:hover{
+    transform: scale(110%);
 }
 
 .leftbutton{
@@ -355,7 +356,7 @@ a .movie-image{
 }
 
 .movie-preview div, .movie-preview p{
-    transition: color 0.5s, filter 0.5s;
+    transition: all 0.5s;
 }
 
 .scores{
@@ -404,8 +405,16 @@ img{
 }
 
 .movie-preview:hover .movie-image{
+    transform: scale(110%);
+    margin-top: 10%;
     filter: brightness(125%);
 }
+
+.movie-preview:hover .movie-name{
+    margin-top: 4vh;
+}
+
+/* SECRET */
 
 .secret{
     background: rgba(50, 50, 50, 0.9);
@@ -422,13 +431,14 @@ img{
     opacity: 0%;
 }
 
+.secretFull{
+    animation: secretSite 16s;
+    opacity: 100%;
+}
+
 .secretsite .secret{
     background: black;
     margin-top: 0vh;
-}
-
-.secretAnim{
-    animation: secretSite 16s;
 }
 
 .secretsite{
@@ -455,6 +465,10 @@ img{
 
 .secret-unlock{
     animation: secret 6s ease-in-out infinite;
+}
+
+.ambienceSound{
+    opacity: 0%;
 }
 
 /* ANIMATIONS */

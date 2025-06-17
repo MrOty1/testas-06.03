@@ -349,7 +349,7 @@ const addMovieList = (target, movieRatings) => {
             <a class="movie-select" href="movies/${e + 1}.html">
                 <div class="movie-preview">
                     <div class="movie-image" style="--order: ${e + 1}"></div>
-                    <p class="movie-name">${movieName}</p>
+                    <div class="movie-name">${movieName}</div>
                     <div class="scoreBox">
                         <div class="scores">
                             <div class="critic score-icon"></div>
@@ -457,7 +457,7 @@ const secretFunc = (word, secret, event, text, sound, soundVoice, time) => {
         soundVoice.play();
         sound.play();
         setTimeout(() => {
-            window.location.href = "secret/secret.html";
+            window.location.href = "secret.html";
             secret.classList.remove('secret-unlock');
             text.classList.remove('glowing');
         }, time);
